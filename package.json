@@ -1,0 +1,42 @@
+{
+  "name": "js-algorithms-practice",
+  "version": "0.0.0",
+  "description": "Just practicing different algorithms and data structures in JavaScript",
+  "scripts": {
+    "format-prettier": "prettier --print-width 100 --single-quote --write \"**/*.js\"",
+    "format-eslint": "eslint -c .eslintrc --fix \"**/*.js\"",
+    "format-staged": "prettier-eslint --prettier-last --print-width 100 --single-quote --write",
+    "format": "prettier-eslint --prettier-last --print-width 100 --single-quote --write \"**/*.js\"",
+    "lint-prettier": "prettier -l --print-width 100 --single-quote \"**/*.js\"",
+    "lint-eslint": "eslint -c .eslintrc --max-warnings 0 \"**/*.js\"",
+    "lint-eslint-config-prettier": "eslint --print-config .eslintrc.js | eslint-config-prettier-check",
+    "lint": "npm run lint-eslint-config-prettier && npm run lint-prettier && npm run lint-eslint",
+    "precommit": "lint-staged"
+  },
+  "lint-staged": {
+    "*.js": [
+      "format-staged",
+      "git add"
+    ]
+  },
+  "devDependencies": {
+    "babel-eslint": "8.0.0",
+    "eslint": "4.7.0",
+    "eslint-config-prettier": "2.5.0",
+    "husky": "0.14.3",
+    "lint-staged": "4.2.1",
+    "prettier": "1.7.0",
+    "prettier-eslint-cli": "4.3.2"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alexilyaev/js-algorithms-practice.git"
+  },
+  "keywords": [],
+  "author": "Alex Ilyaev",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/alexilyaev/js-algorithms-practice/issues"
+  },
+  "homepage": "https://github.com/alexilyaev/js-algorithms-practice#readme"
+}
