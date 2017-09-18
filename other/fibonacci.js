@@ -1,7 +1,7 @@
 'use strict';
 
 /**
- * Fibonacci sequence
+ * Fibonacci sequence with recursion
  */
 function fib(n) {
   // console.count('fib');
