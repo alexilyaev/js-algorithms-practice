@@ -20,9 +20,11 @@
   },
 
   "rules": {
+    // Disabled
+    "no-console": 0,
+
     // Warning
     "max-len": [1, { "code": 100, "ignoreUrls": true }],
-    "no-console": 1,
     "no-debugger": 1,
     "no-undef": 1,
     "no-unreachable": 1,
