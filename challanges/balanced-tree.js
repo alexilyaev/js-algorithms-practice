@@ -96,16 +96,6 @@ function isSuperBalanced(rootNode) {
 
 //----------------------------------------------------------
 
-function isSuperBalancedLoop(root) {
-  let minDepth;
-  let maxDepth;
-  const done = false;
-
-  while (done) {}
-}
-
-//----------------------------------------------------------
-
 const root = new BinaryTreeNode(10);
 
 root.insertLeft(9);
