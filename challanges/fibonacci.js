@@ -4,17 +4,17 @@
  * MISSION:
  * Calculate Fibonacci number for a given term in the Fibonacci sequence
  *
- * Ref:
+ * Refs:
  * https://www.mathsisfun.com/numbers/fibonacci-sequence.html
  */
 
 /**
- * Recursion
+ * Recursion - Top-Bottom approach
  *
  * Time - O(2^n) - `fib` is called many times for some sub numbers O(2^n-2)
  * Space - O(n) - How deep is the recursion tree, excluding constant multipliers
  *
- * Ref:
+ * Refs:
  * Time -
  * https://stackoverflow.com/questions/360748/computational-complexity-of-fibonacci-sequence/23095023#23095023
  * Space - https://www.youtube.com/watch?v=dxyYP3BSdcQ
@@ -61,10 +61,10 @@ console.log(fibRecursOptimized(8));
 // Getting "Maximum call stack size exceeded" for an input above 7840
 
 /**
- * Regular loop
+ * Regular loop - Bottom-Top approach
  *
  * Time - O(n)
- * Space - O(6) - Not growing, approximately the number of variables
+ * Space - O(1) - Not growing when input scales, approximately the number of variables
  */
 function fibLoop(n) {
   if (n <= 1) {
