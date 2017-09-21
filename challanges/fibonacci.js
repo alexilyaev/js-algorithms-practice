@@ -8,6 +8,7 @@
  * https://www.mathsisfun.com/numbers/fibonacci-sequence.html
  */
 
+//----------------------------------------------------------
 /**
  * Recursion - Top-Bottom approach
  *
@@ -19,21 +20,17 @@
  * https://stackoverflow.com/questions/360748/computational-complexity-of-fibonacci-sequence/23095023#23095023
  * Space - https://www.youtube.com/watch?v=dxyYP3BSdcQ
  */
-function fibRecurs(n) {
-  // console.count('fibRecurs');
+function fibRecurse(n) {
+  // console.count('fibRecurse');
 
   if (n <= 1) {
     return n;
   }
 
-  return fibRecurs(n - 1) + fibRecurs(n - 2);
+  return fibRecurse(n - 1) + fibRecurse(n - 2);
 }
 
-console.log(fibRecurs(8));
-// 21
-// `fib` called 67 times
-// Takes too long from inputs above 30
-
+//----------------------------------------------------------
 /**
  * Recursion - Optimized to cache already computed results
  *
@@ -42,24 +39,20 @@ console.log(fibRecurs(8));
  */
 const cache = [];
 
-function fibRecursOptimized(n) {
-  // console.count('fibRecursOptimized');
+function fibRecurseOptimized(n) {
+  // console.count('fibRecurseOptimized');
 
   if (n <= 1) {
     return n;
   }
 
-  cache[n - 1] = cache[n - 1] || fibRecursOptimized(n - 1);
-  cache[n - 2] = cache[n - 2] || fibRecursOptimized(n - 2);
+  cache[n - 1] = cache[n - 1] || fibRecurseOptimized(n - 1);
+  cache[n - 2] = cache[n - 2] || fibRecurseOptimized(n - 2);
 
   return cache[n - 1] + cache[n - 2];
 }
 
-console.log(fibRecursOptimized(8));
-// 21
-// `fib` called 9 times
-// Getting "Maximum call stack size exceeded" for an input above 7840
-
+//----------------------------------------------------------
 /**
  * Regular loop - Bottom-Top approach
  *
@@ -89,9 +82,23 @@ function fibLoop(n) {
   }
 }
 
+/**
+ * Tests
+ */
+
+console.log(fibRecurse(8));
+// 21
+// 67 steps
+// Takes way too long with inputs above 30
+
+console.log(fibRecurseOptimized(8));
+// 21
+// 9 steps
+// Getting "Maximum call stack size exceeded" for an input above 7840
+
 console.log(fibLoop(8));
 // 21
-// Looped 7 iterations
+// 7 steps
 // Handles anything, even 99999999
 
 //----------------------------------------------------------
@@ -130,6 +137,6 @@ function measure(f, ...rest) {
 
 const input = 26;
 
-measure(fibRecurs, input);
-measure(fibRecursOptimized, input);
+measure(fibRecurse, input);
+measure(fibRecurseOptimized, input);
 measure(fibLoop, input);
