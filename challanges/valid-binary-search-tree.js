@@ -38,21 +38,23 @@ class BinaryTreeNode {
 /**
  * Solution
  *
+ * DFS with a loop
+ *
  * Time - O(n)
  * Space - O(n) - The most we'll have in the stack is the depth of the tree O(log n)
  *                But we can have a tree with all nodes in one branch, so O(n)
  */
 
-function loopDFS(root) {
+function isValidBST(root) {
   const nodesStack = [
     {
       node: root,
-      parent: null
+      parentVal: null
     }
   ];
 
   while (nodesStack.length) {
-    const { node, parent } = nodesStack.pop();
+    const { node, parentVal } = nodesStack.pop();
     const { left, right } = node;
 
     if (!left && !right) {
@@ -63,13 +65,13 @@ function loopDFS(root) {
       return false;
     }
 
-    if (parent) {
+    if (parentVal !== null) {
       // Right subtree
-      if (node.value > parent.value && left.value <= parent.value) {
+      if (node.value > parentVal && left.value <= parentVal) {
         return false;
       }
       // Left subtree
-      if (node.value < parent.value && right.value >= parent.value) {
+      if (node.value < parentVal && right.value >= parentVal) {
         return false;
       }
     }
@@ -77,11 +79,11 @@ function loopDFS(root) {
     nodesStack.push(
       {
         node: left,
-        parent: node
+        parentVal: node.value
       },
       {
         node: right,
-        parent: node
+        parentVal: node.value
       }
     );
   }
@@ -110,7 +112,7 @@ tree1.left.insertRight(40);
 tree1.right.insertLeft(70);
 tree1.right.insertRight(90);
 
-console.log(loopDFS(tree1));
+console.log(isValidBST(tree1));
 // true
 
 //----------------------------------------------------------
@@ -131,7 +133,7 @@ tree2.left.insertRight(40);
 tree2.right.insertLeft(100);
 tree2.right.insertRight(90);
 
-console.log(loopDFS(tree2));
+console.log(isValidBST(tree2));
 // false
 
 /**
@@ -149,7 +151,7 @@ tree3.left.insertRight(60);
 tree3.right.insertLeft(70);
 tree3.right.insertRight(90);
 
-console.log(loopDFS(tree3));
+console.log(isValidBST(tree3));
 // false
 
 /**
@@ -167,5 +169,5 @@ tree4.left.insertRight(40);
 tree4.right.insertLeft(70);
 tree4.right.insertRight(80);
 
-console.log(loopDFS(tree4));
+console.log(isValidBST(tree4));
 // false
