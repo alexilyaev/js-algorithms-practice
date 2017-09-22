@@ -112,8 +112,7 @@ tree1.left.insertRight(40);
 tree1.right.insertLeft(70);
 tree1.right.insertRight(90);
 
-console.log(isValidBST(tree1));
-// true
+console.log(isValidBST(tree1), true);
 
 //----------------------------------------------------------
 // Invalid trees
@@ -133,8 +132,7 @@ tree2.left.insertRight(40);
 tree2.right.insertLeft(100);
 tree2.right.insertRight(90);
 
-console.log(isValidBST(tree2));
-// false
+console.log(isValidBST(tree2), false);
 
 /**
  * A right node in left subtree should not be greater of it subtree parent
@@ -151,8 +149,7 @@ tree3.left.insertRight(60);
 tree3.right.insertLeft(70);
 tree3.right.insertRight(90);
 
-console.log(isValidBST(tree3));
-// false
+console.log(isValidBST(tree3), false);
 
 /**
  * A node should not equal it's parent
@@ -169,5 +166,4 @@ tree4.left.insertRight(40);
 tree4.right.insertLeft(70);
 tree4.right.insertRight(80);
 
-console.log(isValidBST(tree4));
-// false
+console.log(isValidBST(tree4), false);

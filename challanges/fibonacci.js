@@ -86,18 +86,15 @@ function fibLoop(n) {
  * Tests
  */
 
-console.log(fibRecurse(8));
-// 21
+console.log(fibRecurse(8), 21);
 // 67 steps
 // Takes way too long with inputs above 30
 
-console.log(fibRecurseOptimized(8));
-// 21
+console.log(fibRecurseOptimized(8), 21);
 // 9 steps
 // Getting "Maximum call stack size exceeded" for an input above 7840
 
-console.log(fibLoop(8));
-// 21
+console.log(fibLoop(8), 21);
 // 7 steps
 // Handles anything, even 99999999
 

@@ -220,18 +220,14 @@ tree2.right.insertRight(4);
 tree2.left.left.insertLeft(3);
 tree2.left.left.insertRight(2);
 
-console.log(recursionDFS(tree1));
-// true
+console.log(recursionDFS(tree1), true);
 // 9 steps recursion, 5 steps to check leaves
-console.log(loopDFS(tree1));
-// true
+console.log(loopDFS(tree1), true);
 // 9 steps
 
-console.log(recursionDFS(tree2));
-// true
+console.log(recursionDFS(tree2), true);
 // 9 steps recursion, 5 steps to check leaves
-console.log(loopDFS(tree2));
-// true
+console.log(loopDFS(tree2), true);
 // 9 steps
 
 //----------------------------------------------------------
@@ -267,18 +263,14 @@ tree2.right.right.insertRight(2);
 tree2.right.right.right.insertLeft(1);
 tree2.right.right.right.insertRight(0);
 
-console.log(recursionDFS(tree1));
-// false
+console.log(recursionDFS(tree1), false);
 // 11 steps recursion, 5 steps to check leaves
-console.log(loopDFS(tree1));
-// false
+console.log(loopDFS(tree1), false);
 // 10 steps
 
-console.log(recursionDFS(tree2));
-// false
+console.log(recursionDFS(tree2), false);
 // 15 steps recursion, 4 steps to check leaves
-console.log(loopDFS(tree2));
-// false
+console.log(loopDFS(tree2), false);
 // 8 steps
 
 /**
@@ -287,6 +279,4 @@ console.log(loopDFS(tree2));
  * 1. recursionDFS can be optimized to bail early:
  * Instead of a `leaves` array we'd hold maxDepth and minDepth, just like in the loopDFS solution.
  * In which case it would be as efficient but prune to a Stack Overflow error.
- *
- * 2.
  */
