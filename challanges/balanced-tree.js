@@ -52,6 +52,7 @@ class BinaryTreeNode {
  * Space - O(n)
  */
 
+// eslint-disable-next-line
 let rootNodeVal;
 
 function getLeafNodesDepths(currNode, depth = 0, leaves = []) {
@@ -279,3 +280,13 @@ console.log(recursionDFS(tree2));
 console.log(loopDFS(tree2));
 // false
 // 8 steps
+
+/**
+ * NOTES:
+ *
+ * 1. recursionDFS can be optimized to bail early:
+ * Instead of a `leaves` array we'd hold maxDepth and minDepth, just like in the loopDFS solution.
+ * In which case it would be as efficient but prune to a Stack Overflow error.
+ *
+ * 2.
+ */
