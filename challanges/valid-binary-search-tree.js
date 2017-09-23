@@ -1,7 +1,7 @@
 'use strict';
 
 /**
- * MISSION:
+ * CHALLENGE:
  * Write a function to check that a binary tree is a valid binary search tree
  *
  * A binary search tree is a binary tree in which, for each node:

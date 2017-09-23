@@ -1,7 +1,7 @@
 'use strict';
 
 /**
- * MISSION:
+ * CHALLENGE:
  * Calculate Fibonacci number for a given term in the Fibonacci sequence
  *
  * Refs:

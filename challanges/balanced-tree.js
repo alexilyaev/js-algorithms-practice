@@ -1,7 +1,7 @@
 'use strict';
 
 /**
- * MISSION:
+ * CHALLENGE:
  * Write a function to see if a binary tree is "superbalanced" (a tree property we just made up)
  *
  * A tree is "superbalanced" if the difference between the depths of any two leaf nodes is no
