@@ -1,6 +1,7 @@
 'use strict';
 
 /**
+ * CHALLENGE:
  * Given 2 sorted distinct arrays, merge them into 1 sorted array
  *
  * Assumptions:
