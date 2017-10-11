@@ -91,5 +91,17 @@
     ],
 
     "strict": [1, "global"]
-  }
+  },
+
+  // Override config (only applied to files that match the given globs)
+  "overrides": [
+    // Test files
+    {
+      "files": ["**/*.spec.js"],
+      "env": {
+        "jest": true
+      },
+      "globals": {}
+    }
+  ]
 }
