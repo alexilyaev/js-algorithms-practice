@@ -12,9 +12,9 @@ describe('SinglyList', () => {
       list.addFirst('Foo Bar');
 
       expect(list._head.data).toBe('Foo Bar');
-      expect(list.get(0).data).toBe('Foo Bar');
-      expect(list.get(1).data).toBe('Peter Pan');
-      expect(list.get(2).data).toBe('John Doe');
+      expect(list._head.data).toBe('Foo Bar');
+      expect(list._head.next.data).toBe('Peter Pan');
+      expect(list._head.next.next.data).toBe('John Doe');
     });
   });
 
@@ -27,9 +27,9 @@ describe('SinglyList', () => {
       list.addLast('Foo Bar');
 
       expect(list._length).toBe(3);
-      expect(list.get(0).data).toBe('John Doe');
-      expect(list.get(1).data).toBe('Peter Pan');
-      expect(list.get(2).data).toBe('Foo Bar');
+      expect(list._head.data).toBe('John Doe');
+      expect(list._head.next.data).toBe('Peter Pan');
+      expect(list._head.next.next.data).toBe('Foo Bar');
     });
   });
 
@@ -72,9 +72,9 @@ describe('SinglyList', () => {
       list.add(1, 'Peter Pan');
       list.add(1, 'Foo Bar');
 
-      expect(list.get(0).data).toBe('John Doe');
-      expect(list.get(2).data).toBe('Peter Pan');
-      expect(list.get(1).data).toBe('Foo Bar');
+      expect(list._head.data).toBe('John Doe');
+      expect(list._head.next.data).toBe('Foo Bar');
+      expect(list._head.next.next.data).toBe('Peter Pan');
     });
   });
 
@@ -107,14 +107,12 @@ describe('SinglyList', () => {
   });
 
   describe('get', () => {
-    // Regular `get` was already tested as part of `addFirst` test
-
     it('should throw RangeError when asked for an out of range index', () => {
       const list = new SinglyList();
 
-      list.addFirst('John Doe');
-      list.addFirst('Peter Pan');
-      list.addFirst('Foo Bar');
+      list.addLast('John Doe');
+      list.addLast('Peter Pan');
+      list.addLast('Foo Bar');
 
       function catchWrap() {
         list.get(3);
@@ -123,24 +121,34 @@ describe('SinglyList', () => {
       expect(catchWrap).toThrowError(RangeError);
       expect(catchWrap).toThrowError('out of list bounds');
     });
+
+    it(`should get an item based on it's index`, () => {
+      const list = new SinglyList();
+
+      list.addLast('John Doe');
+      list.addLast('Peter Pan');
+      list.addLast('Foo Bar');
+
+      expect(list.get(1).data).toBe('Peter Pan');
+    });
   });
 
   describe('set', () => {
     it('should replace an existing item with given item', () => {
       const list = new SinglyList();
 
-      list.addFirst('John Doe');
-      list.addFirst('Peter Pan');
+      list.addLast('John Doe');
+      list.addLast('Peter Pan');
       list.set(1, 'Foo Bar');
 
-      expect(list.get(1).data).toBe('Foo Bar');
+      expect(list._head.next.data).toBe('Foo Bar');
     });
 
     it('should throw RangeError when asked for an out of range index', () => {
       const list = new SinglyList();
 
-      list.addFirst('John Doe');
-      list.addFirst('Peter Pan');
+      list.addLast('John Doe');
+      list.addLast('Peter Pan');
 
       function catchWrap() {
         list.set(2, 'Foo Bar');
@@ -155,9 +163,9 @@ describe('SinglyList', () => {
     it('should return a list item index based on data', () => {
       const list = new SinglyList();
 
-      list.addFirst('John Doe');
-      list.addFirst('Peter Pan');
-      list.addFirst('Foo Bar');
+      list.addLast('John Doe');
+      list.addLast('Peter Pan');
+      list.addLast('Foo Bar');
 
       expect(list.indexOf('Peter Pan')).toBe(1);
     });
@@ -165,7 +173,7 @@ describe('SinglyList', () => {
     it('should return -1 if item was not found', () => {
       const list = new SinglyList();
 
-      list.addFirst('John Doe');
+      list.addLast('John Doe');
       expect(list.indexOf('Peter Pan')).toBe(-1);
     });
   });
@@ -174,8 +182,8 @@ describe('SinglyList', () => {
     it('should throw RangeError when asked for an out of range index', () => {
       const list = new SinglyList();
 
-      list.addFirst('John Doe');
-      list.addFirst('Peter Pan');
+      list.addLast('John Doe');
+      list.addLast('Peter Pan');
 
       function catchWrap() {
         list.remove(2);
@@ -215,8 +223,8 @@ describe('SinglyList', () => {
 
       expect(list.remove(1)).toBe('Peter Pan');
       expect(list._length).toBe(2);
-      expect(list.get(0).data).toBe('John Doe');
-      expect(list.get(1).data).toBe('Foo Bar');
+      expect(list._head.data).toBe('John Doe');
+      expect(list._head.next.data).toBe('Foo Bar');
 
       list.remove(0);
       list.remove(0);
@@ -265,8 +273,8 @@ describe('SinglyList', () => {
 
       expect(list.removeLast()).toBe('Foo Bar');
       expect(list._length).toBe(2);
-      expect(list.get(0).data).toBe('John Doe');
-      expect(list.get(1).data).toBe('Peter Pan');
+      expect(list._head.data).toBe('John Doe');
+      expect(list._head.next.data).toBe('Peter Pan');
     });
 
     it('should return `null` if list is empty', () => {
