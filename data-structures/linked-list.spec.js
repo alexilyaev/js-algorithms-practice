@@ -34,23 +34,6 @@ describe('SinglyList', () => {
   });
 
   describe('add', () => {
-    it('should add items at a specific index', () => {
-      const list = new SinglyList();
-      const spyAddFirst = jest.spyOn(list, 'addFirst');
-      const spyAddLast = jest.spyOn(list, 'addLast');
-
-      list.add(0, 'John Doe');
-      list.add(1, 'Peter Pan');
-      list.add(1, 'Foo Bar');
-
-      expect(spyAddFirst).toHaveBeenCalledWith('John Doe');
-      expect(spyAddLast).toHaveBeenCalledWith('Peter Pan');
-
-      expect(list.get(0).data).toBe('John Doe');
-      expect(list.get(2).data).toBe('Peter Pan');
-      expect(list.get(1).data).toBe('Foo Bar');
-    });
-
     it('should throw RangeError if `index` out of range', () => {
       const list = new SinglyList();
 
@@ -60,6 +43,38 @@ describe('SinglyList', () => {
 
       expect(catchWrap).toThrowError(RangeError);
       expect(catchWrap).toThrowError('out of list bounds');
+    });
+
+    it('should call `addFirst` if the index is 0', () => {
+      const list = new SinglyList();
+
+      const spyAddFirst = jest.spyOn(list, 'addFirst').mockImplementationOnce(() => {});
+
+      list.add(0, 'John Doe');
+      expect(spyAddFirst).toHaveBeenCalledWith('John Doe');
+    });
+
+    it('should call `addLast` if the index is equal to list size', () => {
+      const list = new SinglyList();
+
+      const spyAddLast = jest.spyOn(list, 'addLast').mockImplementationOnce(() => {});
+
+      list.addFirst('John Doe');
+      list.add(1, 'Peter Pan');
+
+      expect(spyAddLast).toHaveBeenCalledWith('Peter Pan');
+    });
+
+    it('should add items at a specific index', () => {
+      const list = new SinglyList();
+
+      list.add(0, 'John Doe');
+      list.add(1, 'Peter Pan');
+      list.add(1, 'Foo Bar');
+
+      expect(list.get(0).data).toBe('John Doe');
+      expect(list.get(2).data).toBe('Peter Pan');
+      expect(list.get(1).data).toBe('Foo Bar');
     });
   });
 

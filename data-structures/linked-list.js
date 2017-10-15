@@ -169,39 +169,6 @@ class SinglyList {
   }
 
   /**
-   * Remote list item at specific index
-   *
-   * @param index
-   * @returns {string|null} The removed item
-   */
-  remove(index) {
-    if (index < 0 || index >= this._length) {
-      throw new RangeError(`index ${index} out of list bounds`);
-    }
-
-    let node = this._head;
-    let prev = node;
-    let _index = 0;
-
-    if (index === 0) {
-      return this.removeFirst();
-    } else if (index === this._length - 1) {
-      return this.removeLast();
-    }
-
-    while (_index !== index) {
-      prev = node;
-      node = node.next;
-      _index++;
-    }
-
-    prev.next = node.next;
-    this._length--;
-
-    return node.data;
-  }
-
-  /**
    * Remove list item at list head
    *
    * @returns {string|null} The removed item
@@ -250,6 +217,39 @@ class SinglyList {
     this._length--;
 
     return last.data;
+  }
+
+  /**
+   * Remote list item at specific index
+   *
+   * @param index
+   * @returns {string|null} The removed item
+   */
+  remove(index) {
+    if (index < 0 || index >= this._length) {
+      throw new RangeError(`index ${index} out of list bounds`);
+    }
+
+    let node = this._head;
+    let prev = node;
+    let _index = 0;
+
+    if (index === 0) {
+      return this.removeFirst();
+    } else if (index === this._length - 1) {
+      return this.removeLast();
+    }
+
+    while (_index !== index) {
+      prev = node;
+      node = node.next;
+      _index++;
+    }
+
+    prev.next = node.next;
+    this._length--;
+
+    return node.data;
   }
 
   /**
