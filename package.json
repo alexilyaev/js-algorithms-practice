@@ -12,7 +12,8 @@
     "lint-eslint-config-prettier": "eslint --print-config .eslintrc.js | eslint-config-prettier-check",
     "lint": "npm run lint-eslint-config-prettier && npm run lint-prettier && npm run lint-eslint",
     "test": "jest",
-    "test:watch": "jest --watch --notify",
+    "test-watch": "jest --watch --notify",
+    "test-coverage": "jest --coverage",
     "precommit": "lint-staged"
   },
   "lint-staged": {
