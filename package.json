@@ -11,9 +11,10 @@
     "lint-eslint": "eslint -c .eslintrc --max-warnings 0 \"**/*.js\"",
     "lint-eslint-config-prettier": "eslint --print-config .eslintrc.js | eslint-config-prettier-check",
     "lint": "npm run lint-eslint-config-prettier && npm run lint-prettier && npm run lint-eslint",
-    "test": "jest",
-    "test-watch": "jest --watch --notify",
-    "test-coverage": "jest --coverage",
+    "test": "jest ./data-structures",
+    "test-watch": "npm run test -- --watch --notify",
+    "test-coverage": "npm run test -- --coverage",
+    "test-ci": "npm run test-coverage && npm run test-e2e",
     "precommit": "lint-staged"
   },
   "lint-staged": {
@@ -27,7 +28,7 @@
     "eslint": "4.7.1",
     "eslint-config-prettier": "2.5.0",
     "husky": "0.14.3",
-    "jest": "21.2.1",
+    "jest": "22.1.1",
     "lint-staged": "4.2.1",
     "prettier": "1.7.0",
     "prettier-eslint-cli": "4.3.2"
