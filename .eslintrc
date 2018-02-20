@@ -56,39 +56,42 @@
     "func-call-spacing": [0, "never"],
     "function-paren-newline": [0, "multiline"],
 
-    // Disabled
-    "no-console": 0,
-
     // Warning
-    "no-debugger": 1,
-    "no-undef": 1,
-    "no-unreachable": 1,
-    "no-unused-vars": [1, { "vars": "all", "args": "after-used" }],
+    "array-callback-return": 1,
+    "curly": [1, "all"],
+    "eqeqeq": [1, "always"],
+    "linebreak-style": [1, "unix"],
+    "lines-between-class-members": [1, "always", {"exceptAfterSingleLine": true}],
+    "line-comment-position": [1, "above"],
     "newline-after-var": [1, "always"],
     "newline-before-return": 1,
-    "prefer-arrow-callback": 1,
-    "prefer-const": 1,
-    "no-multi-assign": 1,
-    "no-warning-comments": [1, { "terms": ["fixme", "todo", "hack", "review", "xxx"] }],
-    "no-useless-constructor": 1,
-
-    "linebreak-style": [1, "unix"],
+    "no-console": 0,
+    "no-constant-condition": [1, {"checkLoops": false}],
+    "no-debugger": 1,
     "no-else-return": 1,
-    "curly": [1, "all"],
     "no-inline-comments": 1,
-    "spaced-comment": [1, "always", { "exceptions": ["-"] }],
-    "no-nested-ternary": 1,
-    "no-unneeded-ternary": [1, { "defaultAssignment": false }],
-    "no-var": 1,
-    "eqeqeq": [1, "always"],
-    "no-return-assign": 1,
+    "no-multi-assign": 1,
     "no-multi-str": 1,
+    "no-nested-ternary": 1,
+    "no-return-assign": 1,
+    "no-undef": 1,
+    "no-unneeded-ternary": [1, { "defaultAssignment": false }],
+    "no-unreachable": 1,
+    "no-unused-vars": [1, { "vars": "all", "args": "after-used" }],
+    "no-useless-constructor": 1,
+    "no-var": 1,
+    "no-warning-comments": [1, { "terms": ["fixme", "todo", "hack", "review", "xxx"] }],
+    "no-return-await": 1,
+    "require-await": 1,
     "padding-line-between-statements": [
       1,
       { "blankLine": "always", "prev": "*", "next": "return" },
       { "blankLine": "always", "prev": ["const", "let"], "next": "*"},
       { "blankLine": "any",    "prev": ["const", "let"], "next": ["const", "let"]}
     ],
+    "prefer-arrow-callback": 1,
+    "prefer-const": 1,
+    "spaced-comment": [1, "always", { "exceptions": ["-"] }],
 
     "strict": [1, "global"]
   },
@@ -100,8 +103,7 @@
       "files": ["**/*.spec.js"],
       "env": {
         "jest": true
-      },
-      "globals": {}
+      }
     }
   ]
 }
